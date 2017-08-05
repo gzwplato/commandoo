@@ -1,0 +1,68 @@
+This is important, quite IMPORTANT, ==IF== you need to create .po files for language translations
+
+Lazarus 1.6 and lower has a bug where multi-line hints, edits, labels, etc are not properly converted
+for .po (language) files. I'm hoping this is all fixed in laz 1.8. The normal choices that I could Find
+all used locale for the files. I DON'T want this, I want the user to be able to choose anything they want.
+
+So I made changes to 3 files in the lazarus source code. Two of these units I made copies of and saved locally:
+
+lcl/LCLTranslator ===> unitjLCLTranslator
+lcl/translations.pas  ====>  unitjtranslations.pas
+
+This ensures language switching is all ok.
+
+
+
+Here is the IMPORTANT PART:
+
+if YOU want to create .po files that support the multiline hints (which I use for help text) you
+need to change the sourcefile:
+
+ide/sourcefilemanager.pas
+
+
+In unit SourceFileManager find this procedure and use the code within the ====== section:
+
+
+procedure TLRTGrubber.Grub(Sender: TObject; const Instance: TPersistent;
+  PropInfo: PPropInfo; var Content: string);
+var
+  LRSWriter: TLRSObjectWriter;
+  Path: String;
+begin
+  if not Assigned(Instance) then exit;
+  if not Assigned(PropInfo) then exit;
+  if SysUtils.CompareText(PropInfo^.PropType^.Name,'TTRANSLATESTRING')<>0 then exit;
+  if Writer.Driver is TLRSObjectWriter then begin
+    LRSWriter:=TLRSObjectWriter(Writer.Driver);
+    Path:=LRSWriter.GetStackPath;
+  end else begin
+    Path:=Instance.ClassName+'.'+PropInfo^.Name;
+  end;
+  
+===========================================  
+  //FGrubbed.Add(Uppercase(Path)+'='+Content);
+//This gives a + indicator that is used by translator to recoginize mulitLine text...
+  FGrubbed.Add(Uppercase(Path)+'='+stringreplace( Content, LineEnding, LineEnding + '+', [rfreplaceall,rfignorecase] ));
+===========================================  
+  
+  //DebugLn(['TLRTGrubber.Grub "',FGrubbed[FGrubbed.Count-1],'"']);
+end;
+
+
+A further tip for .po makers:
+
+.po files are found in folder "po_files" and in "languages".
+
+in po_files the files are not translated yet, in languages they are and are given to users with
+the software package.
+
+In order to update all the files when new text is added to forms or when new resourcestrings are made
+you need to build with i8n on...twice. First have i8n pointing to po_files, then build. Then point i8n
+to languages, then build again. 
+
+Now all .po files are updated and the po files in languages can be translated for the new lines.
+
+I've not figured out completely why there are "fuzzy" transalations, there are always a handful.
+If you do not go through and mark them unfuzzy they WILL NOT get translated. So make sure you do 
+that.

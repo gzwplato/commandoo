@@ -1,0 +1,72 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+
+This release version (1.0.0) is from August 2017.
+
+My gnuGPG key is 0x74E59DD3 2013-12-09
+as JuliuS Inet (internet signing).
+
+
+sha256 checksums:
+- -----------------
+1d76bab5051baeea9c8c39d288144da621b61da9f2487c50e916b1fb831427f0  commandoo_folder.tar.gz
+7ec783ec9e43996a6a7daa8bcac7607a411d0979d6a05a75342cd12e50e6f767  commandoo_1.0.0_64QT.tar.gz
+dfb13eaa310015223bb154dca3e25cceddc76124601fb598edb3d4b45dc115c8  commandoo_1.0.0_64GTK.tar.gz
+491df84ea4ae48a279e0e6aa83aaa441755eeda29db7932b6c54d8db89330fc5  commandoo_1.0.0_32QT.tar.gz
+ed1ac9049bcc55df28533928cd1eab44900805a6becc3abdeada09350eda4f84  commandoo_1.0.0_32GTK.tar.gz
+
+
+
+Tested / developed with Debian 8 Stable (Jessie). And tested with
+64 bit Kubuntu 14.04 and 32 bit Mint (17.2 Rafaela). Also tested 
+in 64 bit Debian 9 (sid).
+
+Source code at:  https://github.com/Juuliuus/commandoo/
+
+Alternative download:  https://www.timepirate.org/downloads.html
+
+
+The file:  commandoo_folder.tar.gz
+
+...has a readme.txt file with detailed install information.
+
+It is the homebase folder for the commandoo executable, and has a starter 
+DataBase (170+ commands) and example searches. You can add as many 
+databases as you like.
+  
+Download the variety of commandoo executable you want and place it in that 
+uncompressed folder. You can also place your commandoo executable in any 
+home folder you like but you will then not have the starter database.
+
+====
+
+BE AWARE that the QT versions will -NOT- run if this library is not 
+installed on your system:
+
+libqt4pas5
+
+
+This library is found in all the standard repositories, use package manager 
+or apt-get.
+
+====
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBAgAGBQJZhcCVAAoJEB21d6905Z3TrsMP/AlRstnuEQl4A1viF1t+D4Gp
+QrQNwgQOtEtD/Q2RriLGoSPkHmQEnwWBfYOeq6PBaxzKIOu5B6frV79Bvmi9Hmdf
+WW7l9kqKyjvSEnHogLa1OyQV/T8iS5/p1AEfMoN/7ivrAhYXBCETF9Rs4irMIrrP
+rXY+wP1hFc2BBio1JH1qx7Sb0wFDnDBSdVoOSi80h97KNVu2tkZxRGAi8b6qfUP/
+kMAq8fo/tig588lSW/BnDdnHddkHNiEe0qYyROo4O1cVkhJkuMfm89u5skyKnXFE
+pWbiqEW/JJ360mpa6CdZZXmkUSFIwWz9hS8ScrYnb+Ao9Rxf7+YG1Ejpx4wy1Nv5
+XsUhB0nMXDuPklzk9E9ODMfuVbU21klEcosrPzfd+l0tGQvn4e+bYXAnkWkizjJA
+HJR+K6CsjOJh/iwIMSED+ipFbZkp76uCGL019fyasSiA2BnmymYNINtRuV7bMmdK
+mH/vMm6Mm3Rfnn4l7t1ZV0dSnTBRt8m/77tgqVWsxjmeUHmXRK7k+kYp1AhZ01qG
+1BsFExv0B7iuOWrIqXlwFAca4iwgoeNPTEIY7orrXzzoLWRVn0xWt/tS4Fk1iElM
+MZTkpBSemFD6cuejh49+6qCJZpSv16m42JxDxhUZUFnd8Obl0weVmfxZ4XI0gdDw
+sgJhVhHBU9XfvpxVwNH+
+=ag/w
+-----END PGP SIGNATURE-----

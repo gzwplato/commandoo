@@ -1,0 +1,411 @@
+object frmProfiles: TfrmProfiles
+  Left = 330
+  Height = 520
+  Top = 361
+  Width = 405
+  ActiveControl = lbList
+  Caption = 'Manage Database Profiles'
+  ClientHeight = 520
+  ClientWidth = 405
+  Constraints.MinHeight = 520
+  Constraints.MinWidth = 405
+  Font.Height = -13
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PopupMenu = popM
+  Position = poOwnerFormCenter
+  LCLVersion = '1.6.0.4'
+  inline FrameHint1: TFrameHint
+    Left = 84
+    Top = -3
+    ParentColor = True
+    TabOrder = 5
+  end
+  object btnOK: TBitBtn
+    Left = 284
+    Height = 39
+    Top = 53
+    Width = 111
+    Action = actOK
+    Anchors = [akTop, akRight]
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000001180C046A0E06023C000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000001271508B65E5236FF3D321BFC1109024B0000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000271508B0574C33FFBD9474FFA68868FF3C2F18FC1007
+      0246000000000000000000000000000000000000000000000000000000000000
+      000000000000271407A853442AFF966F52FFA87C5FFFAC8062FF896D50FF3F2E
+      17FB0F0702410000000000000000000000000000000000000000000000000000
+      0000261306A05D462DFF896A4FFF937054FF97765AFF9B765BFF947056FF795F
+      44FF433018F90E06023C00000000000000000000000000000000000000002311
+      068E69482CFF876B51FF94775BFF9A7D60FF5A4C35FF7A6A4DFF9F8166FF9C80
+      64FF937B63FF4F321AF70C06013800000000000000000000000000000000492A
+      15DA967A5DFF9D8467FF9B8165FF6F543BFF24140896462C18E7877155FF9E85
+      69FF9D8467FF987D62FF533219F50B060133000000000000000000000000180C
+      046B764D2FFEA99174FF836044FF2513089000000000050301184E2F19E79A7E
+      62FFB29B7FFFB29B7EFF9F8367FF532E13F30A05012E00000000000000000000
+      0000190D046C5A371CF5261308910000000000000000000000000603011B522F
+      19E8A88C70FFC8B294FFC8B294FFA88B6FFF4A2E19D400000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000604
+      011D543118EAB59A7DFFDECAABFFA58362FF371B09BC00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000008040121522E13ECA88769FF40200CD80301000D00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000604011D1A0D04720301000E0000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000
+    }
+    Kind = bkOK
+    TabOrder = 1
+  end
+  object btnCancel: TBitBtn
+    Left = 296
+    Height = 30
+    Top = 139
+    Width = 90
+    Action = actCancel
+    Anchors = [akTop, akRight]
+    Cancel = True
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000000000000000000002020202020202020000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000014141D2A313172D5000055CD0D0D73F9101075F90101
+      57CD313172D514141D2A00000000000000000000000000000000000000000000
+      00000000000033335B930E0E75F807159EFF081BB8FF091BCCFF0A1CD2FF0A1C
+      C0FF0716A3FF0E0E75F833335B93000000000000000000000000000000000000
+      000033335D93020580FE081AAAFF0308BEFF0613BEFF0A15B1FF0F19BCFF0D1C
+      CEFF030AD0FF0819B6FF020580FE33335D930000000000000000000000001414
+      1F2A0E0E7DF808179FFF0000AAFF0715BFFF030880FF01013E740101111E0606
+      4B76141CB1F1060EBFFF0817ABFF0E0E7DF814141F2A00000000000000003131
+      7DD5051197FF020596FF0A1BAEFF0000BCFF050EC8FF020686FD0000355B0000
+      000001010E171318ADF00206ABFF05109CFF31317DD500000000000000002121
+      88ED051191FF08129CFF1315A8F20814B5FF0000C7FF040DCBFF020689FD0000
+      375B00000000050548700C16AEFF05119AFF212188ED00000000020202020B0B
+      8BF909128CFF0B129AFF02021D2E101199DE141FBEFF1515CBFF141DC6FF0709
+      89FD0000385B00000F170D13A5FF040D90FF0B0B8BF902020202020202020B0B
+      8FF93A43AAFF171E9CFF01010F1901010E1611129DDE4A52CEFF3737CCFF343A
+      C4FF07098AFD0000416710159CFF161E93FF0B0B8FF902020202000000002121
+      93ED373EAFFF2B31A5FF020244760000000001010E1616179EDE5961CCFF4646
+      C5FF3A3FB8FF050786FF22269CFF363BACFF212193ED00000000000000003131
+      8ED5252BABFF5E60C2FF080A86EE01010D170000000001010F1715169FDD4E53
+      C1FF5353BEFF4448B1FF4B4DB4FF262BAAFF31318ED500000000000000001414
+      212A0F0F9AF85A5DBFFF5457BFFF070889ED020246740101121C030324351213
+      ADF0464AB9FF6161C0FF5053B9FF0F0F9AF81414212A00000000000000000000
+      000033336E930F11A4FE6D6FC9FF7779D0FF3737B0FF1C1CA5FF2325AEFF4649
+      BCFF6F70CBFF6163C2FF090AA1FE33336E930000000000000000000000000000
+      00000000000033336E930F0FA2F84748BBFF7373CCFF8A8AD8FF8B8BD9FF7676
+      CDFF4242B9FF0F0FA0F833336E93000000000000000000000000000000000000
+      000000000000000000001414222A31319AD5020285CD2222AFFA2F2FB1FB0E0E
+      8BD133339AD51414222A00000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000002020202020202020000
+      0000000000000000000000000000000000000000000000000000
+    }
+    GlyphShowMode = gsmNever
+    Kind = bkCancel
+    TabOrder = 3
+    Visible = False
+  end
+  object lbList: TListBox
+    Left = 13
+    Height = 226
+    Hint = 'List of Program managed and custom '#10'Database Profiles. '#10#10'The first two ("DB") are managed by the '#10'Program and are always displayed, you'#10'can not delete or edit them. They are'#10'Profiles for the pre-collected database in'#10'text and sql format.'#10#10'You may add custom profiles at any time'#10'and those will be listed here.'#10#10'Profiles can have the same name as long'#10'as they use a different DB type.'#10#10'<end>'
+    Top = 53
+    Width = 265
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ExtendedSelect = False
+    Font.Height = -15
+    ItemHeight = 0
+    OnClick = lbListClick
+    OnDblClick = lbListDblClick
+    OnKeyDown = lbListKeyDown
+    ParentFont = False
+    PopupMenu = popM
+    TabOrder = 0
+  end
+  object gbManageList: TGroupBox
+    Left = 16
+    Height = 152
+    Top = 361
+    Width = 379
+    Anchors = [akLeft, akBottom]
+    Caption = 'Manage Profile List'
+    ClientHeight = 132
+    ClientWidth = 373
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 4
+    object btnAdd: TButton
+      Left = 24
+      Height = 24
+      Top = 8
+      Width = 123
+      Action = actAdd
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 0
+    end
+    object btnEdit: TButton
+      Left = 24
+      Height = 24
+      Top = 37
+      Width = 123
+      Action = actEdit
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 1
+    end
+    object btnDelete: TButton
+      Left = 225
+      Height = 24
+      Top = 37
+      Width = 123
+      Action = actDelete
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 3
+    end
+    object btnCopy: TButton
+      Left = 225
+      Height = 24
+      Top = 8
+      Width = 123
+      Action = actCopy
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 2
+    end
+    object btnConvert: TButton
+      Left = 7
+      Height = 24
+      Hint = 'Convert a text DB to a sql DB and'#10'vice versa.'#10#10'Destination file(s) must not already exist.'#10#10'<end>'
+      Top = 102
+      Width = 122
+      Action = actConvert
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 5
+    end
+    object btnMergeTo: TButton
+      Left = 242
+      Height = 24
+      Hint = 'Merge the items in the selected profile'#10'to another profile (can be from text/sql '#10'to another text/sql).'#10#10'In the case of duplicate commands notes,'#10'command lines, etc. will be merged into '#10'the destination.'#10#10'In this case the destination must already'#10'exist.'#10#10'<end>'
+      Top = 102
+      Width = 122
+      Action = actMergeTo
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 6
+    end
+    object btnCompare: TButton
+      Left = 123
+      Height = 24
+      Top = 72
+      Width = 122
+      Action = actCompare
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 4
+    end
+  end
+  object lblPathDisplay: TLabel
+    Left = 15
+    Height = 21
+    Hint = 'The Path/Folder of the currently selected'#10'Profile.'#10#10'This may, for the default DB''s, show that'#10'they are "switched off in Options". This means '#10'that while they are visible in Profile '#10'Management Mode they will not be visible'#10'in Switch Database mode. This is changed'#10'in Options.'#10#10'<end>'
+    Top = 28
+    Width = 380
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = '1...'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblDefaultDisplay: TLabel
+    Left = 15
+    Height = 22
+    Hint = 'Reference only. It shows the default data'#10'file Path/Folder for the program.'#10#10'<end>'
+    Top = 331
+    Width = 371
+    Anchors = [akLeft, akRight, akBottom]
+    AutoSize = False
+    Caption = '3...'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblCurrentProfile: TLabel
+    Left = 16
+    Height = 24
+    Hint = 'Reference only. It shows the default data'#10'file Path/Folder for the program.'#10#10'<end>'
+    Top = 295
+    Width = 370
+    Anchors = [akLeft, akRight, akBottom]
+    AutoSize = False
+    Caption = '2...'
+    Font.Height = -13
+    ParentColor = False
+    ParentFont = False
+  end
+  object btnSelect: TBitBtn
+    Left = 284
+    Height = 39
+    Top = 97
+    Width = 111
+    Action = actSelect
+    Anchors = [akTop, akRight]
+    Default = True
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000001180C046A0E06023C000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000001271508B65E5236FF3D321BFC1109024B0000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000271508B0574C33FFBD9474FFA68868FF3C2F18FC1007
+      0246000000000000000000000000000000000000000000000000000000000000
+      000000000000271407A853442AFF966F52FFA87C5FFFAC8062FF896D50FF3F2E
+      17FB0F0702410000000000000000000000000000000000000000000000000000
+      0000261306A05D462DFF896A4FFF937054FF97765AFF9B765BFF947056FF795F
+      44FF433018F90E06023C00000000000000000000000000000000000000002311
+      068E69482CFF876B51FF94775BFF9A7D60FF5A4C35FF7A6A4DFF9F8166FF9C80
+      64FF937B63FF4F321AF70C06013800000000000000000000000000000000492A
+      15DA967A5DFF9D8467FF9B8165FF6F543BFF24140896462C18E7877155FF9E85
+      69FF9D8467FF987D62FF533219F50B060133000000000000000000000000180C
+      046B764D2FFEA99174FF836044FF2513089000000000050301184E2F19E79A7E
+      62FFB29B7FFFB29B7EFF9F8367FF532E13F30A05012E00000000000000000000
+      0000190D046C5A371CF5261308910000000000000000000000000603011B522F
+      19E8A88C70FFC8B294FFC8B294FFA88B6FFF4A2E19D400000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000604
+      011D543118EAB59A7DFFDECAABFFA58362FF371B09BC00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000008040121522E13ECA88769FF40200CD80301000D00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000604011D1A0D04720301000E0000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000
+    }
+    GlyphShowMode = gsmNever
+    Kind = bkOK
+    TabOrder = 2
+    Visible = False
+  end
+  object popM: TPopupMenu
+    OnPopup = popMPopup
+    left = 304
+    top = 208
+    object mniAdd: TMenuItem
+      Action = actAdd
+    end
+    object mniEdit: TMenuItem
+      Action = actEdit
+    end
+    object mniConsolidate: TMenuItem
+      Action = actCopy
+    end
+    object mniDelete: TMenuItem
+      Action = actDelete
+    end
+    object MenuItem1: TMenuItem
+      Caption = '⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
+      Enabled = False
+    end
+    object mniConvert: TMenuItem
+      Action = actConvert
+    end
+    object mniCompare: TMenuItem
+      Action = actCompare
+    end
+    object mniMergeTo: TMenuItem
+      Action = actMergeTo
+    end
+    object MenuItem2: TMenuItem
+      Caption = '⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'
+      Enabled = False
+    end
+    object mniOK: TMenuItem
+      Action = actOK
+      Caption = 'Close'
+    end
+  end
+  object ActionList1: TActionList
+    left = 296
+    top = 264
+    object actOK: TAction
+      Caption = '&OK'
+      OnExecute = actOKExecute
+    end
+    object actCancel: TAction
+      Caption = 'Cancel'
+      OnExecute = actCancelExecute
+    end
+    object actAdd: TAction
+      Caption = '&A  New'
+      Enabled = False
+      OnExecute = actAddExecute
+    end
+    object actEdit: TAction
+      Caption = '&B  Edit'
+      OnExecute = actEditExecute
+    end
+    object actDelete: TAction
+      Caption = '&D  Delete'
+      OnExecute = actDeleteExecute
+    end
+    object actCopy: TAction
+      Caption = '&C  Copy'
+      OnExecute = actCopyExecute
+    end
+    object actSelect: TAction
+      Caption = '&S  Select'
+      OnExecute = actSelectExecute
+    end
+    object actConvert: TAction
+      Category = 'manipulation'
+      Caption = '&X  Convert'
+      OnExecute = actConvertExecute
+    end
+    object actMergeTo: TAction
+      Category = 'manipulation'
+      Caption = '&Z  Merge To'
+      OnExecute = actMergeToExecute
+    end
+    object actCompare: TAction
+      Category = 'manipulation'
+      Caption = '&Y  Compare'
+      OnExecute = actCompareExecute
+    end
+  end
+  object popS: TPopupMenu
+    left = 351
+    top = 216
+    object mniSelect: TMenuItem
+      Action = actSelect
+    end
+    object mniCancelS: TMenuItem
+      Action = actCancel
+    end
+  end
+end
