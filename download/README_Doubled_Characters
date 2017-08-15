@@ -1,0 +1,69 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+August 15 2017
+
+====================
+Problem: 
+Typed characters are doubled in some cases (solution below)
+====================
+
+On further testing commandoo in a fresh Debian 9 cinnamon desktop I found that the GTK version had the problem of doubled characters. That is, you type 'd' and you get 'dd', etc. This may be a problem in Debian 8 as well.
+
+This is, of course, quite annoying.
+
+The problem is due to the program "ibus". 
+
+If you do not have ibus installed there is no problem. If you are unsure use "which ibus" in a terminal. If it comes back with nothing, ibus is not installed.
+
+ibus is an input method utility. It is designed to allow asian country users to type in their native language: chinese, japanese, etc. So if you are not in Asia the program is not essential.
+
+The problem did not occur in the commandoo QT version, but I'm not certain if it could also be affected in some cases. 
+
+
+
+====================
+Solution:
+====================
+
+Disable ibus or update your ~/.bashrc file.
+
+To see the effect immediately simply type "ibus exit" in a terminal. The double character problem is gone.
+
+This is temporary, only shutting ibus down for the current session. On the next login ibus will be restarted.
+
+There is one permanent solution and one 'permanent' settings solution.
+
+Permanent is to remove ibus from your system.
+
+Settings solution is to put these three lines in your home (and any other 'home's) .bashrc file. This solution is also permanent as long as these lines remain in the .bashrc file. After adding these lines you will need to logout and come back in for them to be in effect:
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+I'm not sure the 3rd line is necessary because, as I said, the problem was not seen in the QT version. But I tested everything again with all three lines in my .bashrc and all versions of commandoo worked fine.
+
+Should you need to re-install your distro then you will need to re-do these changes. For this reason I recommend you add your .bashrc file(s) to your backup scheme.
+
+
+
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBAgAGBQJZktTgAAoJEB21d6905Z3TCGgP/26lhQ56AG9As3JCuK5PSIe1
+TKcojv10TquD/57UWLm7Z7eb2QuvmAT08DEBWYO4U3z1+nSgHgaeQk/vvpZZgLZv
+5B95nNcfUqbaZUmhthsElTX8IaT84dls+epW/0CH7ih4Dz8Uj/nxkgi0ydO1M2B/
+BPMB1rIdnDZuoZUDMJEz0fCKxYImlcJaExbwstmfKxblorARoTt3M41JfL3ETrS0
+xbs3coiUmQLQo5Baj+9kjOGCkuG3iiU1lr2vHD8SJfPAsT+FWtgQpoZYfME1VPyZ
+fdWp9avCHNOu3d4Co4smsJKOyIyAl5DKG0VHl1c1WBT0O0l6fEndPJIP2TauRZF8
+YdLuUenQoKkChfe22r5KinIOdoBvDBCITf8kVpMVomK/0sCw3vN0o2DN0J7CcfJ6
+UzxSHKpwOeb0J9gwEp5OQt+ac/RQoUQP72juWPSSaNYoMsitGW4cfQfZha1LFCy8
+R1GS8YTaHLBFdA+NODaFGU/AqpmulmuNBqEM8avyAd9rXrL3WWlSyfSrWBdHqCnF
+/Cas0+1s8j0FZoBR78nm6HweStLpTcYHi93pkNIVPk0hc95g5GdW4iIL9kX7ckwL
+72UTVmLH16N0WCnrazda624/wwolIbgNLqSyqyibaAh+lenYUkcWQhIpYqBGI5ZS
+ICdtZw89FdwCCJ5Nrrwg
+=3q9a
+-----END PGP SIGNATURE-----
